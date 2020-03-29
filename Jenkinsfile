@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            additionalBuildArgs 'teste-build-jenkins'
+            tag 'teste-build-jenkins'
         }
     }
     stages {
