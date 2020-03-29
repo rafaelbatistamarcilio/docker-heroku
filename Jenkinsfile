@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            label 'teste-build-jenkins'el
+            label 'teste-build-jenkins'
         }
     }
     stages {
