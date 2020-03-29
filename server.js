@@ -1,13 +1,21 @@
 
-const http = require('http');
-const port = process.env.port || 8090;
-const fs = require('fs');
+const express = require('express');
+const cors = require('cors');
+const axios = require('axios');
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    const template = fs.readFileSync('./index.html');
-    res.end(template);
+const app = express();
+app.use(cors());
+
+app.get('/api', async (req, res)=> {
+    res.send({msg:'asdasd'})
+})
+
+app.get('/api/:id', async (req, res)=> {
+    res.send({msg:'asdasd:'+req.params.id})
+})
+
+const port = process.env.PORT || 8090;
+app.listen(port, () => {
+    console.log(`Our app is running on port ${ port }`);
 });
-
-server.listen(port);
 
